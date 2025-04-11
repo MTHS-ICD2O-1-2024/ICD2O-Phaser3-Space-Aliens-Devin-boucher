@@ -13,15 +13,15 @@ const config = {
     physics: {
         default: "arcade",
         arcade: {
-        debug: true,
-      },
+            debug: true,
+        },
     },
-// set background color
+    // set background color
     backgroundColor: 0x5f6e7a,
     scale: {
         mode: Phaser.Scale.FIT,
-    // center it in the middle of the page
-    autoCenter: Phaser.Scale.CENTER_BOTH,
+        // center it in the middle of the page
+        autoCenter: Phaser.Scale.CENTER_BOTH,
     },
 }
 
