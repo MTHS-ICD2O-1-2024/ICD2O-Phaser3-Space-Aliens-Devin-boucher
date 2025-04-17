@@ -4,8 +4,17 @@
 //
 // Created by: Devin Boucher
 // Created on: April 2025
-// This file contains the JS functions for index.html
+// This is he Phaser3 game configuration file
 
+// scene import statements
+import SplashScene from "./SplashScene.js"
+
+// create the new scenes
+const splashScene = new SplashScene()
+
+/**
+ * Start Phaser Game
+ */
 const config = {
   type: Phaser.AUTO,
   width: 1920,
@@ -26,4 +35,7 @@ const config = {
 }
 
 const game = new Phaser.Game(config)
-console.log(game)
+// console.log(game)
+
+// load scenes
+game.scene.start("splashScene")
