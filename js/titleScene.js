@@ -1,20 +1,20 @@
 /* global Phaser */
 
-// Copyright (c) 2020 Mr. Coxall All rights reserved
+// Copyright (c) 2020 Mr Coxall All rights reserved
 //
 // Created by: Devin Boucher
 // Created on: April 2025
-// This is the Splash Scene
+// This is the Title Scene
 
 /**
- * This class is the Splash Scene.
+ * This class is the Title Scene.
  */
-class SplashScene extends Phaser.Scene {
+class TitleScene extends Phaser.Scene {
   /**
    * This method is the constructor.
    */
   constructor() {
-    super({ key: "splashScene" })
+    super({ key: "titleScene" })
   }
 
   /**
@@ -32,7 +32,7 @@ class SplashScene extends Phaser.Scene {
    * Use it to load assets.
    */
   preload() {
-    console.log("Splash Scene")
+    console.log("Title Scene")
   }
 
   /**
@@ -51,8 +51,8 @@ class SplashScene extends Phaser.Scene {
    * @param {number} delta - The delta time in ms since the last frame.
    */
   update(time, delta) {
-    this.scene.switch("titleScene")
+    // pass
   }
 }
 
-export default SplashScene
+export default TitleScene
