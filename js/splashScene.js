@@ -4,13 +4,12 @@
 //
 // Created by: Devin Boucher
 // Created on: April 2025
-// This is he Phaser3 game configuration file
+// This is the slpash scene
 
 /**
  * This class is the Slash Scene.
  */
 class SplashScene extends Phaser.Scene {
-
   constructor() {
     super({ key: "splashScene" })
   }
@@ -23,7 +22,7 @@ class SplashScene extends Phaser.Scene {
     this.cameras.main.setBackgrundColor("ffffff")
   }
   
-  /**
+/**
    * Use it to load assets.
    */
   preload() {
