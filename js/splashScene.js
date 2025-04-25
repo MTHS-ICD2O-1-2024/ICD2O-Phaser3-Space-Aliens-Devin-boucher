@@ -1,8 +1,8 @@
 /* global Phaser */
 
-// Copyright (c) 2020 Mr. Coxall All rights reserved
-//
-// Created by: Devin Boucher
+// Copyright (c) 2020 Mr Coxall All rights reserved
+
+// Created by: devin boucher
 // Created on: April 2025
 // This is the Splash Scene
 
@@ -15,12 +15,14 @@ class SplashScene extends Phaser.Scene {
    */
   constructor() {
     super({ key: "splashScene" })
+
+    this.splashSceneBackgroundImage = null
   }
 
   /**
    * Can be defined on your own Scenes.
    * This method is called by the Scene Manager when the scene starts,
-   *  before preload() and create().
+   * before preload() and create().
    * @param {object} data - Any data passed via ScenePlugin.add() or ScenePlugin.start().
    */
   init(data) {
@@ -33,6 +35,7 @@ class SplashScene extends Phaser.Scene {
    */
   preload() {
     console.log("Splash Scene")
+    this.load.image("splashSceneBackground", "./assets/splashSceneImage.png")
   }
 
   /**
@@ -41,7 +44,13 @@ class SplashScene extends Phaser.Scene {
    * @param {object} data - Any data passed via ScenePlugin.add() or ScenePlugin.start().
    */
   create(data) {
-    // pass
+    this.splashSceneBackgroundImage = this.add.sprite(
+      0,
+      0,
+      "splashSceneBackground"
+    )
+    this.splashSceneBackgroundImage.x = 1920 / 2
+    this.splashSceneBackgroundImage.y = 1080 / 2
   }
 
   /**
@@ -51,7 +60,9 @@ class SplashScene extends Phaser.Scene {
    * @param {number} delta - The delta time in ms since the last frame.
    */
   update(time, delta) {
-    this.scene.switch("titleScene")
+    if (time > 3000) {
+      this.scene.switch("titleScene")
+    }
   }
 }
 
