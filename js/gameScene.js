@@ -6,14 +6,6 @@
 // Created on: April 2025
 // This is the Game Scene
 
-/* global Phaser */
-
-// Copyright (c) 2020 Mr. Coxall All rights reserved
-//
-// Created by: Mr. Coxall
-// Created on: Sep 2020
-// This is the Game Scene
-
 class GameScene extends Phaser.Scene {
   // create an alien
   createAlien () {
