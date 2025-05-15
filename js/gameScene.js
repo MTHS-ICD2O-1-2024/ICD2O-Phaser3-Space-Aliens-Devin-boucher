@@ -6,13 +6,21 @@
 // Created on: April 2025
 // This is the Game Scene
 
+/* global Phaser */
+
+// Copyright (c) 2020 Mr. Coxall All rights reserved
+//
+// Created by: Mr. Coxall
+// Created on: Sep 2020
+// This is the Game Scene
+
 class GameScene extends Phaser.Scene {
   // create an alien
   createAlien () {
     const alienXLocation = Math.floor(Math.random() * 1920) + 1 // this will get a number between 1 and 1920
     const alienYVelocity = Math.floor(Math.random() * 50) + 1 // this will get a number between 1 and 50;
     const alienXVelocity = Math.round(Math.random()) ? 1 : -1 // this will add minus sign in 50% of cases
-    const anAlien = this.physics.add.sprite(alienXLocation, -100, 'alien')
+    const anAlien = this.physics.add.sprite(alienXLocation, 0, 'alien')
     anAlien.body.velocity.y = 200
     anAlien.body.velocity.x = alienXVelocity
     this.alienGroup.add(anAlien)
@@ -52,7 +60,7 @@ class GameScene extends Phaser.Scene {
     this.missileGroup = this.physics.add.group()
 
     // create a group for the aliens
-    this.alienGroup = this.physics.add.group()
+    this.alienGroup = this.add.group()
     this.createAlien()
   }
 
