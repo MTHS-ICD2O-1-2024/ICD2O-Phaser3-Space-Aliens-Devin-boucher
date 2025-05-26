@@ -12,7 +12,7 @@ class GameScene extends Phaser.Scene {
   createAlien () {
     const alienXLocation = Math.floor(Math.random() * 1920) + 1
     let alienXVelocity = Math.floor(Math.random() * 50) + 1
-    alienXVelocity = Math.round(Math.random()) ? 1 : -1 // this will add minus sign in 50% of cases
+    alienXVelocity *= Math.round(Math.random()) ? 1 : -1
     const anAlien = this.physics.add.sprite(alienXLocation, -100, 'alien')
     anAlien.body.velocity.y = 200
     anAlien.body.velocity.x = alienXVelocity
@@ -61,7 +61,7 @@ class GameScene extends Phaser.Scene {
     this.missileGroup = this.physics.add.group()
 
     // create a group for the aliens
-    this.alienGroup = this.physics.add.group()
+    this.alienGroup = this.add.group()
     this.createAlien()
 
     // Collisions between missiles and aliens
@@ -71,6 +71,7 @@ class GameScene extends Phaser.Scene {
       this.sound.play('explosion')
       this.score += 1
       this.scoreText.setText('Score: ' + this.score.toString())
+      this.createAlien()
       this.createAlien()
     }.bind(this))
 
@@ -123,6 +124,13 @@ class GameScene extends Phaser.Scene {
       item.y = item.y - 15
       if (item.y < 0) {
         item.destroy()
+      }
+    })
+
+    // Optional: Bounce aliens off screen edges
+    this.alienGroup.children.each(function (alien) {
+      if (alien.x < 0 || alien.x > 1920) {
+        alien.body.velocity.x *= -1
       }
     })
   }
